@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.querySelector('form');
+            var chatLog = document.getElementById('chat-log');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                var messageInput = document.querySelector('input[name="message"]');
+                var message = messageInput.value;
+                messageInput.value = '';
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/chat', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        chatLog.innerHTML += '<p><strong>User:</strong> ' + message + '</p>';
+                        chatLog.innerHTML += '<p><strong>Chatbot:</strong> ' + response.response + '</p>';
+                    }
+                };
+                xhr.send('message=' + encodeURIComponent(message));
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <div id="chat-log"></div>
+    <form>
+        <input type="text" name="message" placeholder="Enter your message" required>
+        <input type="submit" value="Send">
+    </form>
+</body>
+</html>

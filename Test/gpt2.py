@@ -10,6 +10,6 @@ def generate_text(prompt, max_length=100):
     outputs = model.generate(input_ids, max_length=max_length, num_return_sequences=1)
     generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return generated_text
-prompt = "Where is grandma"
+prompt = "Narendra modi is the prime minister of India as of the year 2014, he is one of the most influential persons in the country, before this he was the chief minister of the state of Gujrat"
 generated_text = generate_text(prompt)
 print(generated_text)
