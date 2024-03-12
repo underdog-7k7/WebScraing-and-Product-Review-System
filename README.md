@@ -1,4 +1,4 @@
-# WebScraing-and-Product-Review-System-Using-Machine-Learning
+# WebScraping-and-Product-Review-System-Using-Machine-Learning
 
 This project is an intelligent AI-based review system designed specifically for e-commerce products. Its purpose is to assist users in obtaining comprehensive insights and evaluations of products by leveraging advanced technologies. The system operates by accepting a user-provided input in the form of a product URL. Using the Beautiful-Soup Library, it scrapes and retrieves the contents of the review section from the targeted product page, which corresponds to the URL provided.
 To enhance user experience and facilitate easier understanding of the collected reviews, the system employs the Sumy summarization model. This powerful automatic summarizer analyses the text reviews and generates concise summaries that capture the key points and sentiments expressed by customers. This way, users can quickly grasp the overall consensus and main highlights of the product's reviews without having to read through lengthy texts.
